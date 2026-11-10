@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMM Studio | Архитектурные макеты</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #07090F; 
+            --bg-light: #0D111A; 
+            --text-color: #F0F2F5; 
+            --text-muted: #8B93A6; 
+            --gold: #C5A059;
+            --gold-glow: rgba(197, 160, 89, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at 50% -20%, #1C2333 0%, var(--bg-base) 80%);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed; top: 0; width: 100%; padding: 20px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(13, 17, 26, 0.7); backdrop-filter: blur(20px);
+            z-index: 1000; border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+        }
+
+        .logo { font-size: 24px; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; text-shadow: 0 0 20px var(--gold-glow); }
+
+        nav a { color: var(--text-color); text-decoration: none; margin-left: 25px; font-size: 14px; transition: color 0.3s; }
+        nav a:hover { color: var(--gold); }
+
+        /* ГЛАВНЫЙ ЭКРАН */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px;
+            background: linear-gradient(to bottom, rgba(7, 9, 15, 0.4), rgba(7, 9, 15, 0.85)), url('hero-bg.jpg') no-repeat center center;
+            background-size: cover; position: relative;
+        }
+        
+        .hero::after { content: ''; position: absolute; bottom: 0; width: 100%; height: 150px; background: linear-gradient(to top, var(--bg-base), transparent); }
+
+        .hero h1 { font-size: 56px; font-weight: 300; max-width: 900px; margin-bottom: 20px; line-height: 1.2; z-index: 1; text-shadow: 0 10px 30px rgba(0,0,0,0.9); }
+        .hero p { color: var(--gold); font-size: 18px; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 40px; z-index: 1; text-shadow: 0 5px 15px rgba(0,0,0,0.9); }
+
+        .btn { display: inline-block; padding: 16px 45px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; transition: all 0.4s ease; cursor: pointer; z-index: 1; background: rgba(7,9,15,0.6); }
+        .btn:hover { background: var(--gold); color: var(--bg-base); box-shadow: 0 0 30px var(--gold-glow); transform: translateY(-2px); }
+
+        .section { padding: 100px 50px; position: relative; }
+        .section-title { text-align: center; font-size: 36px; font-weight: 300; margin-bottom: 60px; text-transform: uppercase; letter-spacing: 3px; }
+        .section-title span { color: var(--gold); }
+
+        /* ОСНОВАТЕЛЬ */
+        .about { display: flex; max-width: 1100px; margin: 0 auto; gap: 60px; align-items: center; background: var(--bg-light); border: 1px solid rgba(255,255,255,0.03); padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .about-img { flex: 0 0 400px; height: 500px; border: 1px solid rgba(197, 160, 89, 0.3); background-color: #111; overflow: hidden; }
+        .about-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+        .about-text { flex: 1; }
+        .about-text h3 { font-size: 32px; margin-bottom: 20px; font-weight: 400; }
+        .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 16px; line-height: 1.8; }
+
+        /* СЕТКИ ПО 4 КОЛОНКИ */
+        .grid-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1400px; margin: 0 auto; }
+        .grid-item { height: 300px; background-color: var(--bg-light); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: all 0.5s ease; cursor: pointer; }
+        .grid-item:hover { border-color: var(--gold); box-shadow: 0 10px 40px var(--gold-glow); transform: translateY(-5px); }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; opacity: 0.85; }
+        .grid-item:hover img { transform: scale(1.05); opacity: 1; }
+
+        /* ЭКСПЕРТИЗА И 4 КАРТОЧКИ */
+        .expertise-grid {
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px; 
+            max-width: 1000px; 
+            margin: 0 auto 50px auto;
+        }
+
+        .expertise-card {
+            background: var(--bg-base); 
+            padding: 40px 30px; 
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            transition: all 0.4s ease;
+        }
+        .expertise-card:hover { border-color: var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .expertise-icon { color: var(--gold); font-size: 28px; margin-bottom: 20px; font-weight: 700; }
+        .expertise-card h3 { font-size: 20px; margin-bottom: 15px; color: var(--text-color); }
+        .expertise-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+        /* МАКРО СЕТКА */
+        .macro-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 1400px; margin: 0 auto; }
+        .macro-grid img { width: 100%; height: 250px; object-fit: cover; border: 1px solid rgba(197,160,89,0.2); transition: transform 0.4s; background-color: var(--bg-light); cursor: pointer; }
+        .macro-grid img:hover { transform: scale(1.03); border-color: var(--gold); }
+
+        /* КОНТАКТЫ */
+        .contacts { text-align: center; background: var(--bg-light); padding: 100px 20px; border-top: 1px solid rgba(197, 160, 89, 0.1); box-shadow: inset 0 50px 100px rgba(0,0,0,0.5); }
+        .contacts h2 { font-size: 42px; margin-bottom: 40px; font-weight: 300; }
+        .contacts p { font-size: 20px; margin-bottom: 15px; color: var(--text-muted); }
+        .contacts a { color: var(--gold); text-decoration: none; transition: color 0.3s, text-shadow 0.3s; }
+        .contacts a:hover { color: #FFF; text-shadow: 0 0 15px var(--gold); }
+        .footer-slogan { margin-top: 60px; font-size: 11px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; opacity: 0.5; }
+
+        /* ЛАЙТБОКС (УВЕЛИЧЕНИЕ ФОТО) */
+        .modal { display: none; position: fixed; z-index: 9999; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(7, 9, 15, 0.95); backdrop-filter: blur(10px); }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; object-fit: contain; border: 1px solid var(--gold); box-shadow: 0 0 50px rgba(0,0,0,0.9); }
+        .close { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+        .close:hover { color: var(--gold); }
+
+        /* АДАПТИВ */
+        @media (max-width: 1200px) {
+            .grid-container, .macro-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 900px) {
+            .grid-container, .macro-grid { grid-template-columns: repeat(2, 1fr); }
+            .expertise-grid { grid-template-columns: 1fr; }
+            .about { flex-direction: column; padding: 20px; }
+            .about-img { width: 100%; flex: none; height: 400px; }
+        }
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            nav a { margin: 0 8px; font-size: 13px; }
+            .hero h1 { font-size: 32px; }
+            .section { padding: 60px 20px; }
+            .grid-container, .macro-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">AMM Studio</div>
+        <nav>
+            <a href="#about">О нас</a>
+            <a href="#portfolio">Работы</a>
+            <a href="#projects">Проекты</a>
+            <a href="#expertise">Технологии</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Мы превращаем чертежи в будущее, которое можно потрогать</h1>
+        <p>Архитектурные макеты • Санкт-Петербург</p>
+        <a href="#portfolio" class="btn">Смотреть работы</a>
+    </section>
+
+    <section class="section" id="about">
+        <div class="about">
+            <div class="about-img">
+                <img src="portret.jpg" alt="Михаил Матвеев">
+            </div> 
+            <div class="about-text">
+                <h3>Михаил Матвеев</h3>
+                <p>Основатель AMM Studio. 16 лет в архитектурном макетировании.</p>
+                <p>В портфолио мастерской — макеты для Эрмитажа, музеев «Гранд Макет Россия» и «Гранд Макет История», музея-заповедника «Дивногорье», 9-метровая панорама для Росавтодора, а также ряд других реализованных проектов различного масштаба и сложности.</p>
+                <a href="#" class="btn" style="margin-top: 20px;">Скачать каталог (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="portfolio">
+        <h2 class="section-title">Наши <span>работы</span></h2>
+        <div class="grid-container">
+            <div class="grid-item" onclick="openModal('Наши работы/maket_1.jpg')"><img src="Наши работы/maket_1.jpg" alt="Работа 1"></div>
+            <div class="grid-item" onclick="openModal('Наши работы/maket_2.jpg')"><img src="Наши работы/maket_2.jpg" alt="Работа 2"></div>
+            <div class="grid-item" onclick="openModal('Наши работы/maket_3.jpg')"><img src="Наши работы/maket_3.jpg" alt="Работа 3"></div>
+            <div class="grid-item" onclick="openModal('Наши работы/maket_4.jpg')"><img src="Наши работы/maket_4.jpg" alt="Работа 4"></div>
+            <div class="grid-item" onclick="openModal('Наши работы/maket_5.jpg')"><img src="Наши работы/maket_5.jpg" alt="Работа 5"></div>
+            <div class="grid-item" onclick="openModal('Наши работы/maket_6.jpg')"><img src="Наши работы/maket_6.jpg" alt="Работа 6"></div>
+            <div class="grid-item" onclick="openModal('Наши работы/maket_7.jpg')"><img src="Наши работы/maket_7.jpg" alt="Работа 7"></div>
+            <div class="grid-item" onclick="openModal('Наши работы/maket_8.jpg')"><img src="Наши работы/maket_8.jpg" alt="Работа 8"></div>
+        </div>
+    </section>
+
+    <section class="section" id="projects" style="background-color: var(--bg-light); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);">
+        <h2 class="section-title">3D-проектирование <span>и визуализация</span></h2>
+        <div class="grid-container">
+            <div class="grid-item" onclick="openModal('Проектирование/3d_1.jpg')"><img src="Проектирование/3d_1.jpg" alt="3D 1"></div>
+            <div class="grid-item" onclick="openModal('Проектирование/3d_2.jpg')"><img src="Проектирование/3d_2.jpg" alt="3D 2"></div>
+            <div class="grid-item" onclick="openModal('Проектирование/3d_3.jpg')"><img src="Проектирование/3d_3.jpg" alt="3D 3"></div>
+            <div class="grid-item" onclick="openModal('Проектирование/3d_4.jpg')"><img src="Проектирование/3d_4.jpg" alt="3D 4"></div>
+            <div class="grid-item" onclick="openModal('Проектирование/3d_5.jpg')"><img src="Проектирование/3d_5.jpg" alt="3D 5"></div>
+            <div class="grid-item" onclick="openModal('Проектирование/3d_6.jpg')"><img src="Проектирование/3d_6.jpg" alt="3D 6"></div>
+            <div class="grid-item" onclick="openModal('Проектирование/3d_7.jpg')"><img src="Проектирование/3d_7.jpg" alt="3D 7"></div>
+            <div class="grid-item" onclick="openModal('Проектирование/3d_8.jpg')"><img src="Проектирование/3d_8.jpg" alt="3D 8"></div>
+        </div>
+    </section>
+
+    <section class="section" id="presentation">
+        <h2 class="section-title">Презентационные <span>макеты</span></h2>
+        <div class="grid-container">
+            <div class="grid-item" onclick="openModal('Презентационные макеты/pres_1.jpg')"><img src="Презентационные макеты/pres_1.jpg" alt="Макет 1"></div>
+            <div class="grid-item" onclick="openModal('Презентационные макеты/pres_2.jpg')"><img src="Презентационные макеты/pres_2.jpg" alt="Макет 2"></div>
+            <div class="grid-item" onclick="openModal('Презентационные макеты/pres_3.jpg')"><img src="Презентационные макеты/pres_3.jpg" alt="Макет 3"></div>
+            <div class="grid-item" onclick="openModal('Презентационные макеты/pres_4.jpg')"><img src="Презентационные макеты/pres_4.jpg" alt="Макет 4"></div>
+            <div class="grid-item" onclick="openModal('Презентационные макеты/pres_5.jpg')"><img src="Презентационные макеты/pres_5.jpg" alt="Макет 5"></div>
+            <div class="grid-item" onclick="openModal('Презентационные макеты/pres_6.jpg')"><img src="Презентационные макеты/pres_6.jpg" alt="Макет 6"></div>
+            <div class="grid-item" onclick="openModal('Презентационные макеты/pres_7.jpg')"><img src="Презентационные макеты/pres_7.jpg" alt="Макет 7"></div>
+            <div class="grid-item" onclick="openModal('Презентационные макеты/pres_8.jpg')"><img src="Презентационные макеты/pres_8.jpg" alt="Макет 8"></div>
+        </div>
+    </section>
+
+    <section class="section" id="expertise" style="background-color: var(--bg-light);">
+        <h2 class="section-title">Экспертиза и <span>реализм</span></h2>
+        
+        <!-- 4 ТЕКСТОВЫЕ КАРТОЧКИ -->
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <div class="expertise-icon">01</div>
+                <h3>Абсолютный реализм</h3>
+                <p>Мы не делаем «коробки из пластика». Прорабатываем каждую деталь: от текстуры травы и упавших листьев до реалистичной аэрографии и искусственного старения.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">02</div>
+                <h3>Работа по вашим материалам</h3>
+                <p>Проектируем с нуля и работаем по вашим чертежам, 3D-моделям, эскизам или даже фотографиям. Полное погружение в архитектуру вашего проекта.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">03</div>
+                <h3>Исключительно ручной труд</h3>
+                <p>Каждый элемент собирается и окрашивается вручную нашими инженерами-макетчиками. Кропотливая индивидуальная работа для максимальной реалистичности.</p>
+            </div>
+            <div class="expertise-card">
+                <div class="expertise-icon">04</div>
+                <h3>Инструмент для инвестора</h3>
+                <p>Максимальная детализация нужна для главного: чтобы инвестор или совет директоров увидел не схему, а будущий объект. И сказал «да» быстрее.</p>
+            </div>
+        </div>
+
+        <!-- 8 МАКРО-ФОТО -->
+        <div class="macro-grid">
+            <img src="Макро/macro_1.jpg" alt="Макро 1" onclick="openModal('Макро/macro_1.jpg')">
+            <img src="Макро/macro_2.jpg" alt="Макро 2" onclick="openModal('Макро/macro_2.jpg')">
+            <img src="Макро/macro_3.jpg" alt="Макро 3" onclick="openModal('Макро/macro_3.jpg')">
+            <img src="Макро/macro_4.jpg" alt="Макро 4" onclick="openModal('Макро/macro_4.jpg')">
+            <img src="Макро/macro_5.jpg" alt="Макро 5" onclick="openModal('Макро/macro_5.jpg')">
+            <img src="Макро/macro_6.jpg" alt="Макро 6" onclick="openModal('Макро/macro_6.jpg')">
+            <img src="Макро/macro_7.jpg" alt="Макро 7" onclick="openModal('Макро/macro_7.jpg')">
+            <img src="Макро/macro_8.jpg" alt="Макро 8" onclick="openModal('Макро/macro_8.jpg')">
+        </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+        <h2>Обсудим ваш проект</h2>
+        <p>Телефон: <a href="tel:+79531479931">+7 953 147-99-31</a></p>
+        <p>Telegram: <a href="https://t.me/Michail7874">@Michail7874</a></p>
+        <p>Email: <a href="mailto:ammstudiospb78@gmail.com">ammstudiospb78@gmail.com</a></p>
+        
+        <div class="footer-slogan">
+            ЦЕНИМ ПРОДУКТ • ДУМАЕМ НА ШАГ ВПЕРЁД • ДЕЛАЕМ С ДУШОЙ
+        </div>
+    </section>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(src) {
+            document.getElementById("imageModal").style.display = "block";
+            document.getElementById("modalImage").src = src;
+        }
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        document.getElementById("imageModal").addEventListener("click", function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
