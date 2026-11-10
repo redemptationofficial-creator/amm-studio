@@ -64,78 +64,19 @@
         .about-text h3 { font-size: 32px; margin-bottom: 20px; font-weight: 400; }
         .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 16px; line-height: 1.8; }
 
-        /* --- СЕТКА 4 КОЛОНКИ --- */
-        .grid-container { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 20px; 
-            max-width: 1400px; 
-            margin: 0 auto; 
-        }
-        .grid-item { 
-            height: 280px; 
-            background-color: var(--bg-light); 
-            position: relative; 
-            overflow: hidden; 
-            border: 1px solid rgba(255,255,255,0.05); 
-            transition: all 0.5s ease; 
-            cursor: pointer; /* Курсор-рука */
-        }
-        .grid-item:hover { 
-            border-color: var(--gold); 
-            box-shadow: 0 10px 40px var(--gold-glow); 
-            transform: translateY(-5px); 
-        }
-        .grid-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.7s ease; 
-            opacity: 0.85; 
-        }
+        .grid-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1400px; margin: 0 auto; }
+        .grid-item { height: 280px; background-color: var(--bg-light); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: all 0.5s ease; cursor: pointer; }
+        .grid-item:hover { border-color: var(--gold); box-shadow: 0 10px 40px var(--gold-glow); transform: translateY(-5px); }
+        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; opacity: 0.85; }
         .grid-item:hover img { transform: scale(1.05); opacity: 1; }
 
-        /* --- МАКРО-СЕТКА --- */
-        .macro-grid { 
-            display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 15px; 
-            max-width: 1400px; 
-            margin: 0 auto; 
-        }
-        .macro-grid img { 
-            width: 100%; 
-            height: 220px; 
-            object-fit: cover; 
-            border: 1px solid rgba(197,160,89,0.2); 
-            transition: transform 0.4s; 
-            background-color: var(--bg-light); 
-            cursor: pointer;
-        }
+        .macro-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 1400px; margin: 0 auto; }
+        .macro-grid img { width: 100%; height: 220px; object-fit: cover; border: 1px solid rgba(197,160,89,0.2); transition: transform 0.4s; background-color: var(--bg-light); cursor: pointer; }
         .macro-grid img:hover { transform: scale(1.03); border-color: var(--gold); }
 
-        /* --- ЛАЙТБОКС (УВЕЛИЧЕНИЕ КАРТИНКИ) --- */
-        .lightbox {
-            display: none; 
-            position: fixed; 
-            z-index: 10000; 
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(7, 9, 15, 0.95); 
-            justify-content: center; 
-            align-items: center;
-            cursor: pointer;
-        }
-        .lightbox img {
-            max-width: 90%; 
-            max-height: 90%; 
-            border: 2px solid var(--gold);
-            box-shadow: 0 0 50px rgba(197, 160, 89, 0.3);
-            animation: zoomIn 0.3s ease;
-        }
-        @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
+        .lightbox { display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(7, 9, 15, 0.95); justify-content: center; align-items: center; cursor: pointer; }
+        .lightbox img { max-width: 90%; max-height: 90%; border: 2px solid var(--gold); box-shadow: 0 0 50px rgba(197, 160, 89, 0.3); animation: zoomIn 0.3s ease; }
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         .contacts { text-align: center; background: var(--bg-light); padding: 100px 20px; border-top: 1px solid rgba(197, 160, 89, 0.1); box-shadow: inset 0 50px 100px rgba(0,0,0,0.5); }
         .contacts h2 { font-size: 42px; margin-bottom: 40px; font-weight: 300; }
@@ -144,22 +85,9 @@
         .contacts a:hover { color: #FFF; text-shadow: 0 0 15px var(--gold); }
         .footer-slogan { margin-top: 60px; font-size: 11px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; opacity: 0.5; }
 
-        /* --- АДАПТИВ --- */
-        @media (max-width: 1200px) {
-            .grid-container, .macro-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 900px) {
-            .about { flex-direction: column; padding: 20px; }
-            .about-img { width: 100%; flex: none; height: 400px; }
-            .grid-container, .macro-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            header { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            nav a { margin: 0 8px; font-size: 13px; }
-            .hero h1 { font-size: 32px; }
-            .section { padding: 60px 20px; }
-            .grid-container, .macro-grid { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 1200px) { .grid-container, .macro-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 900px) { .about { flex-direction: column; padding: 20px; } .about-img { width: 100%; flex: none; height: 400px; } .grid-container, .macro-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { header { padding: 15px 20px; flex-direction: column; gap: 15px; } nav a { margin: 0 8px; font-size: 13px; } .hero h1 { font-size: 32px; } .section { padding: 60px 20px; } .grid-container, .macro-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -189,7 +117,8 @@
             <div class="about-text">
                 <h3>Михаил Матвеев</h3>
                 <p>Основатель AMM Studio. 16 лет в архитектурном макетировании.</p>
-                <p>В портфолио мастерской — макеты для Эрмитажа, музеев «Гранд Макет Россия» и «Гранд Макет История», музея-заповедника «Дивногорье», 9-метровая панорама для Росавтодора, а также ряд других реализованных проектов различного масштаба и сложности.</p>
+                <!-- ИСПРАВЛЕНО: инженеры-макетчики заменены на мастеров-моделистов -->
+                <p>В портфолио мастерской — макеты для Эрмитажа, музеев «Гранд Макет Россия» и «Гранд Макет История», музея-заповедника «Дивногорье», 9-метровая панорама для Росавтодора, а также ряд других реализованных проектов различного масштаба и сложности, выполненных нашими мастерами-моделистами.</p>
                 <a href="AMM_Studio_Catalog.pdf" target="_blank" class="btn" style="margin-top: 20px;">Скачать каталог (PDF)</a>
             </div>
         </div>
@@ -255,7 +184,8 @@
             <div class="expertise-card" style="background: var(--bg-base); padding: 40px 30px; border: 1px solid rgba(197, 160, 89, 0.1);">
                 <div class="expertise-icon" style="color: var(--gold); font-size: 28px; margin-bottom: 20px; font-weight: 700;">03</div>
                 <h3 style="font-size: 20px; margin-bottom: 15px;">Исключительно ручной труд</h3>
-                <p style="font-size: 14px; color: var(--text-muted);">Каждый элемент собирается и окрашивается вручную нашими инженерами-макетчиками. Кропотливая индивидуальная работа для максимальной реалистичности.</p>
+                <!-- ИСПРАВЛЕНО ЗДЕСЬ ТОЖЕ -->
+                <p style="font-size: 14px; color: var(--text-muted);">Каждый элемент собирается и окрашивается вручную нашими мастерами-моделистами. Кропотливая индивидуальная работа для максимальной реалистичности.</p>
             </div>
             <div class="expertise-card" style="background: var(--bg-base); padding: 40px 30px; border: 1px solid rgba(197, 160, 89, 0.1);">
                 <div class="expertise-icon" style="color: var(--gold); font-size: 28px; margin-bottom: 20px; font-weight: 700;">04</div>
@@ -287,17 +217,13 @@
         </div>
     </section>
 
-    <!-- ЛАЙТБОКС -->
     <div id="lightbox" class="lightbox">
         <img id="lightbox-img" src="" alt="Увеличенное изображение">
     </div>
 
-    <!-- СКРИПТ ДЛЯ УВЕЛИЧЕНИЯ -->
     <script>
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-        
-        // Находим все картинки в галереях
         const images = document.querySelectorAll('.grid-item img, .macro-grid img');
         
         images.forEach(img => {
@@ -307,7 +233,6 @@
             });
         });
 
-        // Закрываем при клике в любое место
         lightbox.addEventListener('click', () => {
             lightbox.style.display = 'none';
         });
