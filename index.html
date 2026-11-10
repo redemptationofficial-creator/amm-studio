@@ -79,6 +79,7 @@
             overflow: hidden; 
             border: 1px solid rgba(255,255,255,0.05); 
             transition: all 0.5s ease; 
+            display: block; /* Важно для ссылки */
         }
         .grid-item:hover { 
             border-color: var(--gold); 
@@ -94,13 +95,18 @@
         }
         .grid-item:hover img { transform: scale(1.05); opacity: 1; }
 
-        /* --- МАКРО-СЕТКА (ТОЖЕ 4 КОЛОНКИ) --- */
+        /* --- МАКРО-СЕТКА --- */
         .macro-grid { 
             display: grid; 
             grid-template-columns: repeat(4, 1fr); 
             gap: 15px; 
             max-width: 1400px; 
             margin: 0 auto; 
+        }
+        .macro-grid a {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
         .macro-grid img { 
             width: 100%; 
@@ -173,44 +179,45 @@
     <section class="section" id="portfolio">
         <h2 class="section-title">Наши <span>работы</span></h2>
         <div class="grid-container">
-            <div class="grid-item"><img src="maket_1.jpg" alt="Работа 1"></div>
-            <div class="grid-item"><img src="maket_2.jpg" alt="Работа 2"></div>
-            <div class="grid-item"><img src="maket_3.jpg" alt="Работа 3"></div>
-            <div class="grid-item"><img src="maket_4.jpg" alt="Работа 4"></div>
-            <div class="grid-item"><img src="maket_5.jpg" alt="Работа 5"></div>
-            <div class="grid-item"><img src="maket_6.jpg" alt="Работа 6"></div>
-            <div class="grid-item"><img src="maket_7.jpg" alt="Работа 7"></div>
-            <div class="grid-item"><img src="maket_8.jpg" alt="Работа 8"></div>
+            <!-- Оборачиваем картинки в тег <a> для открытия в новой вкладке -->
+            <a href="maket_1.jpg" target="_blank" class="grid-item"><img src="maket_1.jpg" alt="Работа 1"></a>
+            <a href="maket_2.jpg" target="_blank" class="grid-item"><img src="maket_2.jpg" alt="Работа 2"></a>
+            <a href="maket_3.jpg" target="_blank" class="grid-item"><img src="maket_3.jpg" alt="Работа 3"></a>
+            <a href="maket_4.jpg" target="_blank" class="grid-item"><img src="maket_4.jpg" alt="Работа 4"></a>
+            <a href="maket_5.jpg" target="_blank" class="grid-item"><img src="maket_5.jpg" alt="Работа 5"></a>
+            <a href="maket_6.jpg" target="_blank" class="grid-item"><img src="maket_6.jpg" alt="Работа 6"></a>
+            <a href="maket_7.jpg" target="_blank" class="grid-item"><img src="maket_7.jpg" alt="Работа 7"></a>
+            <a href="maket_8.jpg" target="_blank" class="grid-item"><img src="maket_8.jpg" alt="Работа 8"></a>
         </div>
     </section>
 
     <section class="section" id="projects" style="background-color: var(--bg-light); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);">
         <h2 class="section-title">3D-проектирование <span>и визуализация</span></h2>
         <div class="grid-container">
-            <div class="grid-item"><img src="3d_1.jpg" alt="3D 1"></div>
-            <div class="grid-item"><img src="3d_2.jpg" alt="3D 2"></div>
-            <div class="grid-item"><img src="3d_3.jpg" alt="3D 3"></div>
-            <div class="grid-item"><img src="3d_4.jpg" alt="3D 4"></div>
-            <div class="grid-item"><img src="3d_5.jpg" alt="3D 5"></div>
-            <div class="grid-item"><img src="3d_6.jpg" alt="3D 6"></div>
-            <div class="grid-item"><img src="3d_7.jpg" alt="3D 7"></div>
-            <div class="grid-item"><img src="3d_8.jpg" alt="3D 8"></div>
+            <a href="3d_1.jpg" target="_blank" class="grid-item"><img src="3d_1.jpg" alt="3D 1"></a>
+            <a href="3d_2.jpg" target="_blank" class="grid-item"><img src="3d_2.jpg" alt="3D 2"></a>
+            <a href="3d_3.jpg" target="_blank" class="grid-item"><img src="3d_3.jpg" alt="3D 3"></a>
+            <a href="3d_4.jpg" target="_blank" class="grid-item"><img src="3d_4.jpg" alt="3D 4"></a>
+            <a href="3d_5.jpg" target="_blank" class="grid-item"><img src="3d_5.jpg" alt="3D 5"></a>
+            <a href="3d_6.jpg" target="_blank" class="grid-item"><img src="3d_6.jpg" alt="3D 6"></a>
+            <a href="3d_7.jpg" target="_blank" class="grid-item"><img src="3d_7.jpg" alt="3D 7"></a>
+            <a href="3d_8.jpg" target="_blank" class="grid-item"><img src="3d_8.jpg" alt="3D 8"></a>
         </div>
     </section>
 
     <section class="section" id="presentation">
         <h2 class="section-title">Презентационные <span>макеты</span></h2>
         <div class="grid-container">
-            <div class="grid-item"><img src="pres_1.jpg" alt="Презентация 1"></div>
-            <div class="grid-item"><img src="pres_2.jpg" alt="Презентация 2"></div>
-            <div class="grid-item"><img src="pres_3.jpg" alt="Презентация 3"></div>
-            <div class="grid-item"><img src="pres_4.jpg" alt="Презентация 4"></div>
-            <div class="grid-item"><img src="pres_5.jpg" alt="Презентация 5"></div>
-            <div class="grid-item"><img src="pres_6.jpg" alt="Презентация 6"></div>
-            <div class="grid-item"><img src="pres_7.jpg" alt="Презентация 7"></div>
-            <div class="grid-item"><img src="pres_8.jpg" alt="Презентация 8"></div>
-            <div class="grid-item"><img src="pres_9.jpg" alt="Презентация 9"></div>
-            <div class="grid-item"><img src="pres_10.jpg" alt="Презентация 10"></div>
+            <a href="pres_1.jpg" target="_blank" class="grid-item"><img src="pres_1.jpg" alt="Презентация 1"></a>
+            <a href="pres_2.jpg" target="_blank" class="grid-item"><img src="pres_2.jpg" alt="Презентация 2"></a>
+            <a href="pres_3.jpg" target="_blank" class="grid-item"><img src="pres_3.jpg" alt="Презентация 3"></a>
+            <a href="pres_4.jpg" target="_blank" class="grid-item"><img src="pres_4.jpg" alt="Презентация 4"></a>
+            <a href="pres_5.jpg" target="_blank" class="grid-item"><img src="pres_5.jpg" alt="Презентация 5"></a>
+            <a href="pres_6.jpg" target="_blank" class="grid-item"><img src="pres_6.jpg" alt="Презентация 6"></a>
+            <a href="pres_7.jpg" target="_blank" class="grid-item"><img src="pres_7.jpg" alt="Презентация 7"></a>
+            <a href="pres_8.jpg" target="_blank" class="grid-item"><img src="pres_8.jpg" alt="Презентация 8"></a>
+            <a href="pres_9.jpg" target="_blank" class="grid-item"><img src="pres_9.jpg" alt="Презентация 9"></a>
+            <a href="pres_10.jpg" target="_blank" class="grid-item"><img src="pres_10.jpg" alt="Презентация 10"></a>
         </div>
     </section>
 
@@ -240,14 +247,14 @@
         </div>
         
         <div class="macro-grid">
-            <img src="macro_1.jpg" alt="Макро 1">
-            <img src="macro_2.jpg" alt="Макро 2">
-            <img src="macro_3.jpg" alt="Макро 3">
-            <img src="macro_4.jpg" alt="Макро 4">
-            <img src="macro_5.jpg" alt="Макро 5">
-            <img src="macro_6.jpg" alt="Макро 6">
-            <img src="macro_7.jpg" alt="Макро 7">
-            <img src="macro_8.jpg" alt="Макро 8">
+            <a href="macro_1.jpg" target="_blank"><img src="macro_1.jpg" alt="Макро 1"></a>
+            <a href="macro_2.jpg" target="_blank"><img src="macro_2.jpg" alt="Макро 2"></a>
+            <a href="macro_3.jpg" target="_blank"><img src="macro_3.jpg" alt="Макро 3"></a>
+            <a href="macro_4.jpg" target="_blank"><img src="macro_4.jpg" alt="Макро 4"></a>
+            <a href="macro_5.jpg" target="_blank"><img src="macro_5.jpg" alt="Макро 5"></a>
+            <a href="macro_6.jpg" target="_blank"><img src="macro_6.jpg" alt="Макро 6"></a>
+            <a href="macro_7.jpg" target="_blank"><img src="macro_7.jpg" alt="Макро 7"></a>
+            <a href="macro_8.jpg" target="_blank"><img src="macro_8.jpg" alt="Макро 8"></a>
         </div>
     </section>
 
