@@ -64,14 +64,52 @@
         .about-text h3 { font-size: 32px; margin-bottom: 20px; font-weight: 400; }
         .about-text p { color: var(--text-muted); margin-bottom: 20px; font-size: 16px; line-height: 1.8; }
 
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
-        .grid-item { height: 320px; background-color: var(--bg-light); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: all 0.5s ease; }
-        .grid-item:hover { border-color: var(--gold); box-shadow: 0 10px 40px var(--gold-glow); transform: translateY(-5px); }
-        .grid-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; opacity: 0.85; }
+        /* --- СЕТКА 4 КОЛОНКИ --- */
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        .grid-item { 
+            height: 280px; 
+            background-color: var(--bg-light); 
+            position: relative; 
+            overflow: hidden; 
+            border: 1px solid rgba(255,255,255,0.05); 
+            transition: all 0.5s ease; 
+        }
+        .grid-item:hover { 
+            border-color: var(--gold); 
+            box-shadow: 0 10px 40px var(--gold-glow); 
+            transform: translateY(-5px); 
+        }
+        .grid-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.7s ease; 
+            opacity: 0.85; 
+        }
         .grid-item:hover img { transform: scale(1.05); opacity: 1; }
 
-        .macro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
-        .macro-grid img { width: 100%; height: 220px; object-fit: cover; border: 1px solid rgba(197,160,89,0.2); transition: transform 0.4s; background-color: var(--bg-light); }
+        /* --- МАКРО-СЕТКА (ТОЖЕ 4 КОЛОНКИ) --- */
+        .macro-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        .macro-grid img { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; 
+            border: 1px solid rgba(197,160,89,0.2); 
+            transition: transform 0.4s; 
+            background-color: var(--bg-light); 
+        }
         .macro-grid img:hover { transform: scale(1.03); border-color: var(--gold); }
 
         .contacts { text-align: center; background: var(--bg-light); padding: 100px 20px; border-top: 1px solid rgba(197, 160, 89, 0.1); box-shadow: inset 0 50px 100px rgba(0,0,0,0.5); }
@@ -81,15 +119,21 @@
         .contacts a:hover { color: #FFF; text-shadow: 0 0 15px var(--gold); }
         .footer-slogan { margin-top: 60px; font-size: 11px; color: var(--text-muted); letter-spacing: 4px; text-transform: uppercase; opacity: 0.5; }
 
+        /* --- АДАПТИВ --- */
+        @media (max-width: 1200px) {
+            .grid-container, .macro-grid { grid-template-columns: repeat(3, 1fr); }
+        }
         @media (max-width: 900px) {
             .about { flex-direction: column; padding: 20px; }
             .about-img { width: 100%; flex: none; height: 400px; }
+            .grid-container, .macro-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             header { padding: 15px 20px; flex-direction: column; gap: 15px; }
             nav a { margin: 0 8px; font-size: 13px; }
             .hero h1 { font-size: 32px; }
             .section { padding: 60px 20px; }
+            .grid-container, .macro-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
