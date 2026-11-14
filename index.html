@@ -237,5 +237,31 @@
             lightbox.style.display = 'none';
         });
     </script>
+<!-- Кнопка «Спросить инженера» (Telegram) — AMM Studio -->
+<a href="https://t.me/AMM_Studio_Zayavki_bot" target="_blank" rel="noopener"
+   id="engineer-btn" aria-label="Спросить инженера в Телеграм">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M9.04 15.84l-.43 5.05c.66 0 .95-.28 1.29-.61l3.09-2.94 3.2 2.34c1.18.65 2.02.31 2.34-1.09l4.24-19.73c.38-1.75-.61-2.44-1.73-2.02L3.62 9.49c-1.65.65-1.63 1.57-.29 1.98l4.9 1.53 11.35-7.09c.6-.4 1.16-.18.7.22L9.04 15.84z"/>
+  </svg>
+  <span>Спросить инженера</span>
+</a>
+<style>
+#engineer-btn{position:fixed;right:22px;bottom:22px;z-index:9999;
+  display:flex;align-items:center;gap:10px;
+  background:linear-gradient(180deg,#0D111A,#1C2333);color:#fff;
+  border:1px solid #C5A059;border-radius:50px;
+  padding:12px 20px 12px 14px;text-decoration:none;cursor:pointer;
+  font-family:inherit;font-weight:600;font-size:15px;letter-spacing:.2px;
+  box-shadow:0 8px 24px rgba(0,0,0,.45),0 0 0 1px rgba(197,160,89,.12) inset;
+  transition:transform .15s ease,box-shadow .2s ease;}
+#engineer-btn:hover{transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.5),0 0 0 1.5px #C5A059 inset;}
+#engineer-btn:active{transform:translateY(0);}
+#engineer-btn svg{width:22px;height:22px;fill:#C5A059;flex:none;}
+@media (max-width:600px){
+  #engineer-btn{right:14px;bottom:14px;gap:8px;padding:11px 14px 11px 12px;font-size:13px;}
+  #engineer-btn svg{width:20px;height:20px;}
+}
+</style>
 </body>
 </html>
