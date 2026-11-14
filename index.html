@@ -206,6 +206,80 @@
         </div>
     </section>
 
+    <section class="section" id="catalog">
+        <h2 class="section-title">Каталог <span>работ</span></h2>
+        <div class="gallery-filters">
+            <button class="gf active" data-f="all">Все</button>
+            <button class="gf" data-f="makets">Архитектурные макеты</button>
+            <button class="gf" data-f="print">3D-печать и ремонт</button>
+            <button class="gf" data-f="cast">Художественное литьё</button>
+            <button class="gf" data-f="cnc">ЧПУ и дерево</button>
+        </div>
+        <div class="gallery-grid" id="gallery-grid">
+            <div class="card" data-cat="makets">
+                <div class="thumb">Фото скоро</div>
+                <div class="body"><h3>Макет квартала</h3><p>Архитектурный макет жилого квартала, масштаб 1:500.</p><a class="cta" href="https://t.me/AMM_Studio_Zayavki_bot">Обсудить проект</a></div>
+            </div>
+            <div class="card" data-cat="makets">
+                <div class="thumb">Фото скоро</div>
+                <div class="body"><h3>Макет промышленного комплекса</h3><p>Детальная проработка корпусов, территория и ландшафт.</p><a class="cta" href="https://t.me/AMM_Studio_Zayavki_bot">Обсудить проект</a></div>
+            </div>
+            <div class="card" data-cat="print">
+                <div class="thumb">Фото скоро</div>
+                <div class="body"><h3>3D-печать деталей</h3><p>FDM и фотополимер (SLA/LCD), точность до 25 мкм.</p><a class="cta" href="https://t.me/AMM_Studio_Zayavki_bot">Обсудить проект</a></div>
+            </div>
+            <div class="card" data-cat="print">
+                <div class="thumb">Фото скоро</div>
+                <div class="body"><h3>Ремонт и реставрация</h3><p>Восстановление макетов, замена сломанных элементов.</p><a class="cta" href="https://t.me/AMM_Studio_Zayavki_bot">Обсудить проект</a></div>
+            </div>
+            <div class="card" data-cat="cast">
+                <div class="thumb">Фото скоро</div>
+                <div class="body"><h3>Полимерное литьё</h3><p>Серийное литьё в силиконовые формы, тиражи деталей.</p><a class="cta" href="https://t.me/AMM_Studio_Zayavki_bot">Обсудить проект</a></div>
+            </div>
+            <div class="card" data-cat="cast">
+                <div class="thumb">Фото скоро</div>
+                <div class="body"><h3>Патина и золочение</h3><p>Художественная обработка поверхности: патина, старение, золочение.</p><a class="cta" href="https://t.me/AMM_Studio_Zayavki_bot">Обсудить проект</a></div>
+            </div>
+            <div class="card" data-cat="cnc">
+                <div class="thumb">Фото скоро</div>
+                <div class="body"><h3>ЧПУ-фрезеровка по дереву</h3><p>Фрезерные детали и элементы из массива, высокая точность.</p><a class="cta" href="https://t.me/AMM_Studio_Zayavki_bot">Обсудить проект</a></div>
+            </div>
+            <div class="card" data-cat="cnc">
+                <div class="thumb">Фото скоро</div>
+                <div class="body"><h3>Деревянный макет интерьера</h3><p>Объёмный интерьерный макет из дерева, с подсветкой по желанию.</p><a class="cta" href="https://t.me/AMM_Studio_Zayavki_bot">Обсудить проект</a></div>
+            </div>
+        </div>
+        <style>
+            .gallery-filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 auto 36px;max-width:960px;}
+            .gf{background:var(--bg-base);color:var(--text-color);border:1px solid rgba(197,160,89,.25);padding:10px 18px;border-radius:30px;cursor:pointer;font:inherit;font-size:14px;transition:.2s;}
+            .gf:hover,.gf.active{background:var(--gold);color:#0D111A;border-color:var(--gold);}
+            .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:0 auto;padding:0 20px 20px;}
+            @media (max-width:1024px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+            @media (max-width:560px){.gallery-grid{grid-template-columns:1fr;}}
+            .card{background:var(--bg-light);border:1px solid rgba(197,160,89,.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s;}
+            .card:hover{transform:translateY(-4px);border-color:rgba(197,160,89,.4);}
+            .card .thumb{height:170px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1C2333,#0D111A);color:var(--text-muted);font-size:13px;letter-spacing:.4px;}
+            .card .body{padding:16px;display:flex;flex-direction:column;flex:1;}
+            .card h3{font-size:16px;margin-bottom:6px;}
+            .card p{font-size:13px;color:var(--text-muted);margin-bottom:16px;flex:1;}
+            .card .cta{display:block;background:transparent;border:1px solid var(--gold);color:var(--gold);text-decoration:none;padding:9px 0;border-radius:24px;font-size:13px;text-align:center;transition:.2s;}
+            .card .cta:hover{background:var(--gold);color:#0D111A;}
+            .hide{display:none!important;}
+        </style>
+        <script>
+            (function(){
+                var grid=document.getElementById('gallery-grid');
+                var cards=grid.querySelectorAll('.card');
+                var btns=document.querySelectorAll('.gf');
+                btns.forEach(function(b){b.onclick=function(){
+                    btns.forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+                    var f=b.getAttribute('data-f');
+                    cards.forEach(function(c){c.classList.toggle('hide', f!=='all' && c.getAttribute('data-cat')!==f);});
+                };});
+            })();
+        </script>
+    </section>
+
     <section class="contacts" id="contacts">
         <h2>Обсудим ваш проект</h2>
         <p>Телефон: <a href="tel:+79531479931">+7 953 147-99-31</a></p>
